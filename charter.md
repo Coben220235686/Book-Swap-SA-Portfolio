@@ -40,9 +40,11 @@ The original charter should be retained as supporting evidence for this portfoli
 
 ## 7. Reflection
 
-The Agile Team Charter establishes a shared understanding of the project's purpose and the responsibilities of each team member. It also highlights the importance of communication and collaboration throughout development.
+Creating and reviewing the Agile Team Charter helped me understand the importance of defining clear responsibilities, shared goals and communication methods before beginning development. As the Frontend Developer for Book Swap SA, I need to understand how my responsibilities fit into the wider project and how my work contributes to the team's overall objectives.
 
-Having defined roles helps the team coordinate its work, while the project goals provide direction for planning and prioritising features. The charter can be used as a reference when reviewing progress and ensuring that development remains focused on the needs of CPUT students.
+The charter also helped me recognise the importance of collaboration between different roles. For example, frontend development needs to align with the product requirements, UI/UX decisions and feedback from the rest of the team. Clear communication and regular progress updates can help identify problems early and reduce misunderstandings.
+
+This artefact demonstrates my understanding of how an Agile team establishes a common direction and distributes responsibilities. I can apply this learning by communicating my progress, coordinating my frontend work with the team and using feedback to improve the platform. The charter also provides a reference point for evaluating whether our work remains aligned with the needs of CPUT students.
 ## Original Agile Team Charter
 
 [View the original Agile Team Charter (PDF)](AGILE%20TEAM%20CHARTER%202026.pdf)
