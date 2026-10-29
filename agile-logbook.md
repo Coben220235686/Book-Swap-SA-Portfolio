@@ -1,47 +1,40 @@
-# Agile Logbook — Book Swap SA
+# Agile Logbook – Book Swap SA
 
-**Module:** PRP372S — Project Presentation 3  
-**Project:** Book Swap SA — Second-Hand Textbook Swap
+**Module:** PRP372S  
+**Project:** Book Swap SA – Second-Hand Textbook Swap  
+**Student:** Coben Maistry  
+**Student Number:** 220235686
 
-## 1. Purpose of the Agile Logbook
+## 1. Introduction
 
-The Agile logbook records the project's development activities, sprint progress, testing and reviews. It provides a record of how the team planned and organised the work required to develop Book Swap SA.
+The purpose of this Agile Logbook is to document my participation in the planning, organisation, presentation, and review activities for the Book Swap SA project. It records progress made during different stages of the project, the challenges encountered, the work planned, and the lessons learned while working with my group.
 
-## 2. Sprint Progress Record
+The logbook is based on my original project records for the weeks of 14–17 July 2026, 20–24 July 2026, and 10–14 August 2026.
 
-The project Trello board contains seven sprints covering the following activities.
+## 2. Logbook Activities and Progress
 
-### Sprint 1: Project Initiation and Business Planning
-Activities include developing the problem statement, identifying stakeholders, conducting market research, analysing competitors, completing a SWOT analysis, defining the target market and developing the value proposition.
+### Week 1: 14–17 July 2026 – Business Proposal Presentation
 
-### Sprint 2: Business Plan Development
-Activities include developing the mission and vision statement, defining business goals and objectives, developing the business model, preparing the marketing strategy, developing the operational plan, preparing the financial plan, conducting risk analysis and completing the executive summary.
+During this period, our group prepared and presented the business proposal for Book Swap SA. We worked together to prepare the PowerPoint presentation, agree on the presentation date, and explain the purpose of our proposed solution.
 
-### Sprint 3: System Analysis and Design
-Activities include gathering functional and non-functional requirements, creating user stories, designing the system architecture and database structure, preparing the entity relationship diagram, creating use-case diagrams and designing wireframes.
+After the presentation, we discussed the feedback received and identified areas where the project could be improved. One of the challenges was that the presentation requirement was communicated at short notice, leaving limited time for preparation. Technical difficulties during the presentation also affected the time available to explain our work.
 
-### Sprint 4: UI/UX Design and Prototype Development
-Activities include designing the home page, user registration page, user dashboard, textbook listings page, search and filter interface, messaging interface and reviewing the prototype.
+**Key learning:** I learned the importance of preparing project presentations early, communicating effectively as a team, and being able to adapt when unexpected problems occur.
 
-### Sprint 5: Core System Development
-Planned development activities include user registration, user login, user profile management, textbook listings, search and filter functionality, buyer and seller messaging, and integrating the front end with the back end.
+### Week 2: 20–24 July 2026 – Product Backlog and Project Planning
 
-### Sprint 6: Testing and Quality Assurance
-Activities include testing user registration, login, textbook listings, search and filter features, and buyer and seller messaging. The board also includes bug fixing, performance improvements and user acceptance testing.
+During this period, our group focused on improving the Product Backlog and organising the project work. We reviewed the project requirements, broke larger activities into smaller backlog items, developed user stories, and updated the project roadmap.
 
-### Sprint 7: Project Finalisation and Submission
-Activities include completing technical documentation, completing the user manual, reviewing the entire system, preparing the final presentation, preparing the live demonstration, conducting the final project review and submitting the final project.
+We also worked on identifying stakeholders, documenting their needs, planning sprint activities, and discussing the system architecture and technologies required for the project.
 
-## 3. Evidence
+A challenge was ensuring that the backlog items were realistic, properly prioritised, and distributed fairly among the team members. We needed to make sure that the user stories, sprint tasks, and project documentation were aligned.
 
-The Trello board provides evidence of the project's product backlog, sprint organisation, task allocation and task completion status. Screenshots of the board are included in the portfolio's screenshots folder.
+**Key learning:** I learned that effective Agile planning requires clear user stories, manageable tasks, prioritisation, and regular communication between team members.
 
-## 4. Reflection
+### Week 3: 10–14 August 2026 – Sprint Review and Feedback
 
-Organising the project into sprints helps the team divide a large project into smaller, manageable activities. The Trello board provides a visual overview of the planned work and helps team members monitor progress.
+During this period, our group reviewed the current project work and checked the progress recorded on Trello. We discussed the backlog, reviewed the business case presentation, and considered feedback and possible improvements.
 
-The sprint structure also highlights the importance of completing requirements and design activities before development and testing. Reviewing the board helps the team identify outstanding tasks and focus on the work required for project completion.
+The team also discussed which tasks needed further attention and how the project should progress. Keeping the Trello board updated and ensuring that responsibilities were clear remained important throughout this period.
 
-## 5. Continuous Improvement
-
-The team can use sprint reviews and feedback to identify problems, improve task planning and prioritise outstanding work. The logbook should be updated with actual progress, decisions, challenges and lessons learned as the project develops.
+**Key learning:** I learned that reviewing progress regularly helps a team identify outstanding work, respond to feedback, and
