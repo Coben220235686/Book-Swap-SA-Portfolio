@@ -62,9 +62,12 @@ main {
     padding: 9px 16px;
     background: #17365d;
     color: white !important;
+    border: none;
     border-radius: 6px;
     text-decoration: none;
     margin: 5px 5px 5px 0;
+    cursor: pointer;
+    font: inherit;
 }
 
 .button:hover { background: #24548a; }
@@ -169,12 +172,12 @@ footer {
 </header>
 
 <nav>
-    <a href="#home" onclick="showHome()">Home</a>
-    <a href="#charter" onclick="openDocument('charter.md','Agile Team Charter')">Team Charter</a>
-    <a href="#stories" onclick="openDocument('user-stories.md','User Stories and Tasks')">User Stories</a>
-    <a href="#product" onclick="openDocument('product-backlog.md','Product Backlog')">Product Backlog</a>
-    <a href="#sprint" onclick="openDocument('sprint-backlog.md','Sprint Backlog')">Sprint Backlog</a>
-    <a href="#logbook" onclick="openDocument('agile-logbook.md','Agile Logbook')">Agile Logbook</a>
+    <a href="#home" data-home>Home</a>
+    <a href="#charter" data-doc="charter.md" data-title="Agile Team Charter">Team Charter</a>
+    <a href="#stories" data-doc="user-stories.md" data-title="User Stories and Tasks">User Stories</a>
+    <a href="#product" data-doc="product-backlog.md" data-title="Product Backlog">Product Backlog</a>
+    <a href="#sprint" data-doc="sprint-backlog.md" data-title="Sprint Backlog">Sprint Backlog</a>
+    <a href="#logbook" data-doc="agile-logbook.md" data-title="Agile Logbook">Agile Logbook</a>
 </nav>
 
 <main>
@@ -198,12 +201,17 @@ footer {
             The project purpose, team roles, responsibilities, values
             and communication plan.
         </p>
-        <a class="button" href="AGILE%20TEAM%20CHARTER%202026.pdf" target="_blank" rel="noopener">
+        <a class="button"
+           href="AGILE%20TEAM%20CHARTER%202026.pdf"
+           target="_blank"
+           rel="noopener">
             View Original Team Charter PDF
         </a>
-        <a class="button" href="#charter" onclick="openDocument('charter.md','Agile Team Charter')">
+        <button class="button"
+                data-doc="charter.md"
+                data-title="Agile Team Charter">
             View Portfolio Summary
-        </a>
+        </button>
     </section>
 
     <section class="card" id="stories">
@@ -212,9 +220,11 @@ footer {
             User requirements, acceptance criteria and development tasks
             identified for Book Swap SA.
         </p>
-        <a class="button" href="#stories" onclick="openDocument('user-stories.md','User Stories and Tasks')">
+        <button class="button"
+                data-doc="user-stories.md"
+                data-title="User Stories and Tasks">
             View User Stories
-        </a>
+        </button>
     </section>
 
     <section class="card" id="product">
@@ -222,11 +232,15 @@ footer {
         <p>
             The planned project work, prioritisation and progress tracking.
         </p>
-        <a class="button" href="#product" onclick="openDocument('product-backlog.md','Product Backlog')">
+        <button class="button"
+                data-doc="product-backlog.md"
+                data-title="Product Backlog">
             View Product Backlog
-        </a>
+        </button>
+
         <h3 class="evidence-heading">Product Backlog Evidence</h3>
         <p>Screenshots of the team's Product Backlog are displayed below.</p>
+
         <div class="gallery" id="product-gallery"></div>
         <p class="status" id="product-status">Loading screenshots...</p>
     </section>
@@ -237,11 +251,15 @@ footer {
             Sprint planning, task allocation and progress tracking
             across the project.
         </p>
-        <a class="button" href="#sprint" onclick="openDocument('sprint-backlog.md','Sprint Backlog')">
+        <button class="button"
+                data-doc="sprint-backlog.md"
+                data-title="Sprint Backlog">
             View Sprint Backlog
-        </a>
+        </button>
+
         <h3 class="evidence-heading">Sprint Backlog Evidence</h3>
         <p>Screenshots of the team's sprint planning and tasks are displayed below.</p>
+
         <div class="gallery" id="sprint-gallery"></div>
         <p class="status" id="sprint-status">Loading screenshots...</p>
     </section>
@@ -252,13 +270,17 @@ footer {
             A record of project activities, progress, challenges
             and personal reflection.
         </p>
-        <a class="button" href="#logbook" onclick="openDocument('agile-logbook.md','Agile Logbook')">
+        <button class="button"
+                data-doc="agile-logbook.md"
+                data-title="Agile Logbook">
             View Agile Logbook
-        </a>
+        </button>
+
         <h3 class="evidence-heading">Original Logbook Evidence</h3>
         <p>
             The following images show evidence from the original logbook records.
         </p>
+
         <div class="gallery" id="logbook-gallery"></div>
         <p class="status" id="logbook-status">Loading screenshots...</p>
     </section>
@@ -266,12 +288,14 @@ footer {
 </div>
 
 <section class="card" id="document-view">
-    <button class="button" onclick="showHome()">← Back to Portfolio</button>
+    <button class="button" data-home>← Back to Portfolio</button>
     <h2 id="document-title">Portfolio Document</h2>
+
     <div id="document-content">
         <p>Loading document...</p>
     </div>
-    <button class="button" onclick="showHome()">← Back to Portfolio</button>
+
+    <button class="button" data-home>← Back to Portfolio</button>
 </section>
 
 </main>
@@ -282,6 +306,8 @@ footer {
 </footer>
 
 <script>
+"use strict";
+
 const REPO_OWNER = "Coben220235686";
 const REPO_NAME = "Book-Swap-SA-Portfolio";
 const BRANCH = "main";
@@ -289,9 +315,35 @@ const BRANCH = "main";
 const RAW_BASE =
     `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/`;
 
-const API_URL =
-    `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/screenshots?ref=${BRANCH}`;
+const SCREENSHOT_BASE = RAW_BASE + "screenshots/";
 
+/*
+ * Exact backlog filenames uploaded to GitHub.
+ * The same 19 images are displayed in both backlog galleries.
+ */
+const BACKLOG_IMAGES = [
+    "01_Product_Backlog_Sprint1_Days1-3.png",
+    "02_Product_Backlog_Sprint1_Days4-6.png",
+    "03_Product_Backlog_Sprint1_Days7-9.png",
+    "04_Product_Backlog_Sprint2_Days10-12.png",
+    "05_Product_Backlog_Sprint2_Days13-15.png",
+    "06_Product_Backlog_Sprint2_Days16-18.png",
+    "07_Product_Backlog_Sprint3_Days18-20.png",
+    "08_Product_Backlog_Sprint3_Days21-23.png",
+    "09_Product_Backlog_Sprint3_Day24_Sprint4_Days25-26.png",
+    "10_Product_Backlog_Sprint4_Days27-29.png",
+    "11_Product_Backlog_Sprint4_Days30-32.png",
+    "12_Product_Backlog_Sprint5_Days33-35.png",
+    "13_Product_Backlog_Sprint5_Days36-38.png",
+    "14_Product_Backlog_Sprint5_Days38-40.png",
+    "15_Product_Backlog_Sprint6_Days41-43.png",
+    "16_Product_Backlog_Sprint6_Days44-46.png",
+    "17_Product_Backlog_Sprint6_Days46-48.png",
+    "18_Product_Backlog_Sprint7_Days49-51.png",
+    "19_Product_Backlog_Sprint7_Days52-54.png"
+];
+
+/* Existing Agile Logbook filenames remain unchanged. */
 const LOGBOOK_IMAGES = [
     "01_July_14-17_Logbook_Tuesday.png",
     "02_July_14-17_Logbook_Wednesday_Thursday.png",
@@ -303,6 +355,7 @@ const LOGBOOK_IMAGES = [
     "08_August_10-14_Logbook_Thursday_Friday.png"
 ];
 
+/* Show the home page and hide the document viewer. */
 function showHome() {
     document.getElementById("home").style.display = "block";
     document.getElementById("document-view").style.display = "none";
@@ -313,6 +366,18 @@ function showHome() {
     });
 }
 
+/* Escape text before placing error messages into HTML. */
+function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[character]);
+}
+
+/* Open and render a Markdown document. */
 async function openDocument(filename, title) {
     const home = document.getElementById("home");
     const documentView = document.getElementById("document-view");
@@ -330,16 +395,23 @@ async function openDocument(filename, title) {
     });
 
     try {
-        const response = await fetch(RAW_BASE + filename);
+        const response = await fetch(
+            RAW_BASE + filename.split("/").map(encodeURIComponent).join("/")
+        );
 
         if (!response.ok) {
-            throw new Error("Document could not be found.");
+            throw new Error(
+                "GitHub returned HTTP " + response.status +
+                " while loading " + filename
+            );
         }
 
         const markdown = await response.text();
 
         if (typeof marked === "undefined") {
-            throw new Error("The Markdown renderer did not load. Please refresh the page.");
+            throw new Error(
+                "The Markdown renderer did not load. Please refresh the page."
+            );
         }
 
         documentContent.innerHTML = marked.parse(markdown);
@@ -352,7 +424,7 @@ async function openDocument(filename, title) {
         documentContent.querySelectorAll("img").forEach(img => {
             const src = img.getAttribute("src");
 
-            if (src && !src.startsWith("http") && !src.startsWith("data:")) {
+            if (src && !/^(https?:|data:|\/)/i.test(src)) {
                 img.src = new URL(src, RAW_BASE + filename).href;
             }
         });
@@ -361,26 +433,23 @@ async function openDocument(filename, title) {
         documentContent.innerHTML = `
             <p>Sorry, this document could not be loaded.</p>
             <p class="status">${escapeHTML(error.message)}</p>
-            <p>Check that <strong>${escapeHTML(filename)}</strong> exists in the repository's main branch.</p>
+            <p>
+                Check that <strong>${escapeHTML(filename)}</strong>
+                exists in the repository's main branch.
+            </p>
         `;
     }
 }
 
-function escapeHTML(value) {
-    return String(value).replace(/[&<>"']/g, character => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-    })[character]);
-}
-
-function createGalleryImage(gallery, filename, url) {
+/* Create a screenshot card with a clickable full-size image. */
+function createGalleryImage(gallery, filename) {
     const figure = document.createElement("figure");
     const link = document.createElement("a");
     const img = document.createElement("img");
     const caption = document.createElement("figcaption");
+
+    const url = SCREENSHOT_BASE +
+        filename.split("/").map(encodeURIComponent).join("/");
 
     link.href = url;
     link.target = "_blank";
@@ -390,9 +459,12 @@ function createGalleryImage(gallery, filename, url) {
     img.alt = filename;
     img.loading = "lazy";
 
-    img.onerror = () => {
+    img.addEventListener("error", () => {
         figure.remove();
-    };
+        updateGalleryStatusCounts();
+    });
+
+    img.addEventListener("load", updateGalleryStatusCounts);
 
     caption.textContent = filename;
 
@@ -402,104 +474,90 @@ function createGalleryImage(gallery, filename, url) {
     gallery.appendChild(figure);
 }
 
+function updateGalleryStatusCounts() {
+    const sections = [
+        ["product-gallery", "product-status", "Product Backlog"],
+        ["sprint-gallery", "sprint-status", "Sprint Backlog"],
+        ["logbook-gallery", "logbook-status", "Agile Logbook"]
+    ];
+
+    sections.forEach(([galleryId, statusId, label]) => {
+        const gallery = document.getElementById(galleryId);
+        const status = document.getElementById(statusId);
+        const images = Array.from(gallery.querySelectorAll("img"));
+        const loaded = images.filter(img => img.complete && img.naturalWidth > 0).length;
+
+        status.textContent = loaded
+            ? `${loaded} ${label} screenshot(s) loaded.`
+            : "Loading screenshots...";
+    });
+}
+
 function updateGalleryStatus(id, message) {
     document.getElementById(id).textContent = message;
 }
 
-function isImageFile(filename) {
-    return /\.(png|jpe?g|webp|gif)$/i.test(filename);
-}
-
-async function loadScreenshots() {
+/* Load all galleries using the exact filenames. */
+function loadScreenshots() {
     const productGallery = document.getElementById("product-gallery");
     const sprintGallery = document.getElementById("sprint-gallery");
     const logbookGallery = document.getElementById("logbook-gallery");
 
-    try {
-        const response = await fetch(API_URL);
+    BACKLOG_IMAGES.forEach(filename => {
+        createGalleryImage(productGallery, filename);
+        createGalleryImage(sprintGallery, filename);
+    });
 
-        if (!response.ok) {
-            throw new Error("Could not retrieve the screenshot folder.");
-        }
+    LOGBOOK_IMAGES.forEach(filename => {
+        createGalleryImage(logbookGallery, filename);
+    });
 
-        const files = await response.json();
+    updateGalleryStatus(
+        "product-status",
+        "Loading Product Backlog screenshots..."
+    );
 
-        if (!Array.isArray(files)) {
-            throw new Error("The screenshot folder could not be read.");
-        }
+    updateGalleryStatus(
+        "sprint-status",
+        "Loading Sprint Backlog screenshots..."
+    );
 
-        const images = files.filter(file =>
-            file.type === "file" && isImageFile(file.name)
-        );
+    updateGalleryStatus(
+        "logbook-status",
+        "Loading Agile Logbook screenshots..."
+    );
 
-        // CHANGED: Use the same screenshots for Product and Sprint Backlogs.
-        // Exclude the logbook images from both galleries.
-        const productImages = images.filter(file =>
-            !/logbook|july|august/i.test(file.name)
-        );
-
-        const sprintImages = productImages;
-
-        // Keep the Agile Logbook screenshots separate.
-        const logbookImages = images.filter(file =>
-            LOGBOOK_IMAGES.includes(file.name) ||
-            /logbook|july|august/i.test(file.name)
-        );
-
-        productImages.forEach(file =>
-            createGalleryImage(productGallery, file.name, file.download_url)
-        );
-
-        sprintImages.forEach(file =>
-            createGalleryImage(sprintGallery, file.name, file.download_url)
-        );
-
-        logbookImages.forEach(file =>
-            createGalleryImage(logbookGallery, file.name, file.download_url)
-        );
-
-        updateGalleryStatus(
-            "product-status",
-            productImages.length
-                ? `${productImages.length} screenshot(s) loaded.`
-                : "No backlog screenshots were found in the screenshots folder."
-        );
-
-        updateGalleryStatus(
-            "sprint-status",
-            sprintImages.length
-                ? `${sprintImages.length} screenshot(s) loaded.`
-                : "No backlog screenshots were found in the screenshots folder."
-        );
-
-        updateGalleryStatus(
-            "logbook-status",
-            logbookImages.length
-                ? `${logbookImages.length} Agile Logbook screenshot(s) loaded.`
-                : "No Logbook screenshots were identified. Check the screenshots folder."
-        );
-
-    } catch (error) {
-        updateGalleryStatus(
-            "product-status",
-            "Screenshots could not be loaded automatically. " + error.message
-        );
-
-        updateGalleryStatus(
-            "sprint-status",
-            "Screenshots could not be loaded automatically. " + error.message
-        );
-
-        updateGalleryStatus(
-            "logbook-status",
-            "Screenshots could not be loaded automatically. " + error.message
-        );
-    }
+    updateGalleryStatusCounts();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    loadScreenshots();
+/*
+ * Use event delegation for navigation and buttons.
+ * preventDefault stops the browser's hash navigation from interfering
+ * with the document viewer.
+ */
+document.addEventListener("click", event => {
+    const homeButton = event.target.closest("[data-home]");
+
+    if (homeButton) {
+        event.preventDefault();
+        showHome();
+        return;
+    }
+
+    const documentButton = event.target.closest("[data-doc]");
+
+    if (documentButton) {
+        event.preventDefault();
+
+        openDocument(
+            documentButton.dataset.doc,
+            documentButton.dataset.title ||
+                documentButton.textContent.trim()
+        );
+    }
 });
+
+document.addEventListener("DOMContentLoaded", loadScreenshots);
 </script>
 
 </body>
