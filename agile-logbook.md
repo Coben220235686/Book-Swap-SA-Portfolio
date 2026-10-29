@@ -37,4 +37,44 @@ During this period, our group reviewed the current project work and checked the 
 
 The team also discussed which tasks needed further attention and how the project should progress. Keeping the Trello board updated and ensuring that responsibilities were clear remained important throughout this period.
 
-**Key learning:** I learned that reviewing progress regularly helps a team identify outstanding work, respond to feedback, and
+**Key learning:** I learned that reviewing progress regularly helps a team identify outstanding work, respond to feedback, and plan the next activities more effectively.
+
+## 3. Agile Tools and Collaboration
+
+Trello was used to organise project tasks, manage backlog items, and monitor progress. The board helped the group divide larger activities into smaller tasks and maintain visibility of work that was completed or still in progress.
+
+Communication and discussions with the group were also important when planning presentations, reviewing feedback, agreeing on priorities, and identifying challenges.
+
+These activities helped me understand how Agile practices support teamwork, transparency, planning, and continuous improvement.
+
+## 4. Evidence
+
+The original Agile Logbook documents provide evidence of my recorded project activities, daily stand-up responses, progress, planned work, and challenges.
+
+The supporting evidence includes:
+
+- Agile Logbook records for 14–17 July 2026.
+- Agile Logbook records for 20–24 July 2026.
+- Agile Logbook records for 10–14 August 2026.
+- Trello board screenshots showing the Product Backlog, tasks, and progress.
+- Supporting project presentation and planning documents where relevant.
+
+The original logbooks are retained as supporting evidence rather than replaced by this summary.
+
+## 5. Personal Reflection
+
+Working on the Book Swap SA project has helped me develop a better understanding of how Agile principles are applied in a real group project. I learned that successful project development involves more than writing code. It also requires planning, organising tasks, communicating with team members, reviewing progress, and responding to feedback.
+
+As the Frontend Developer, I need to understand how the project's planning activities connect to the interface and features being developed. The Product Backlog and user stories help clarify what the system should achieve and provide direction for the development work.
+
+One of the main challenges I observed was coordinating tasks when preparation time was limited and ensuring that everyone understood the priorities. Reviewing our progress and discussing feedback showed me why it is important to keep project documentation and the Trello board up to date.
+
+In future sprints, I would aim to communicate progress more consistently, identify potential problems earlier, and ensure that tasks are clearly defined before work begins. I would also make sure that completed work and evidence are recorded promptly so that the team can track progress accurately.
+
+Overall, this experience has improved my understanding of Agile planning, teamwork, task management, and continuous improvement. It has also helped me recognise how good planning and communication can make the development process more organised and effective.
+
+## 6. Conclusion
+
+This Agile Logbook summarises my recorded participation in the Book Swap SA project during the documented weeks. It demonstrates how our group approached presentation preparation, backlog development, project planning, progress reviews, and feedback.
+
+The experience has reinforced the importance of maintaining an organised backlog, documenting progress, communicating effectively, and reflecting on challenges throughout the project.
