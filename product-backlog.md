@@ -44,6 +44,10 @@ The Trello board is the source of the project's backlog information.
 
 ## 6. Reflection
 
-Organising the project backlog into stages helped the team break a large project into smaller, manageable activities. The seven-sprint structure provides a sequence from planning and analysis to implementation, testing and submission.
+Working with the Product Backlog helped me understand how a large project can be divided into smaller activities and organised into a sequence of sprints. The seven-sprint structure shows how the project progresses from initial planning and requirements analysis to development, testing and final submission.
 
-Using Trello makes it easier to see the planned work and monitor task progress. Comparing the planned tasks with their actual status also helps the team identify outstanding work and prepare for the next stage of the project.
+I also learned the importance of using Trello to organise tasks and monitor progress. Keeping the backlog organised helps the team understand what work is planned, what remains outstanding and which activities need attention. It is important to check the actual status of tasks rather than assume that planned work has been completed.
+
+As the Frontend Developer, I can use the backlog to understand the features that need to be developed and how my work fits into the wider project. This helps me coordinate with other team members, prioritise my responsibilities and ensure that the interfaces I develop support the project's requirements.
+
+Overall, the Product Backlog demonstrates the importance of planning, prioritisation and visibility when working as part of an Agile team.
