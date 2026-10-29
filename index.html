@@ -4,10 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Swap SA | Digital Portfolio</title>
+
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <style>
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
@@ -24,12 +31,18 @@ header {
     padding: 45px 20px;
 }
 
-header h1 { font-size: 38px; margin: 0; }
+header h1 {
+    font-size: 38px;
+    margin: 0;
+}
 
 nav {
     background: #102742;
     padding: 15px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 nav a {
@@ -40,7 +53,9 @@ nav a {
     display: inline-block;
 }
 
-nav a:hover { color: #8fd3ff; }
+nav a:hover {
+    color: #8fd3ff;
+}
 
 main {
     max-width: 1000px;
@@ -66,15 +81,22 @@ main {
     margin: 5px 5px 5px 0;
 }
 
-.button:hover { background: #24548a; }
+.button:hover {
+    background: #24548a;
+}
 
-#document-view { display: none; }
+#document-view {
+    display: none;
+}
 
-#document-content { overflow-wrap: anywhere; }
+#document-content {
+    overflow-wrap: anywhere;
+}
 
 #document-content h1,
 #document-content h2,
-#document-content h3 {
+#document-content h3,
+#document-content h4 {
     color: #17365d;
     line-height: 1.3;
 }
@@ -82,6 +104,10 @@ main {
 #document-content h1 {
     border-bottom: 2px solid #e5edf5;
     padding-bottom: 10px;
+}
+
+#document-content a {
+    color: #24548a;
 }
 
 #document-content table {
@@ -98,11 +124,27 @@ main {
     text-align: left;
 }
 
-#document-content th { background: #eaf1f8; }
+#document-content th {
+    background: #eaf1f8;
+}
 
 #document-content img {
     max-width: 100%;
     height: auto;
+}
+
+#document-content pre {
+    background: #f0f3f7;
+    padding: 15px;
+    overflow-x: auto;
+    border-radius: 6px;
+}
+
+#document-content blockquote {
+    border-left: 4px solid #17365d;
+    margin-left: 0;
+    padding-left: 15px;
+    color: #53627a;
 }
 
 .gallery {
@@ -125,6 +167,7 @@ main {
     height: auto;
     display: block;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .gallery figcaption {
@@ -140,7 +183,14 @@ main {
     color: #17365d;
 }
 
-.status { color: #53627a; font-size: 14px; }
+.status {
+    color: #53627a;
+    font-size: 14px;
+}
+
+.back-button {
+    margin-bottom: 15px;
+}
 
 footer {
     background: #17365d;
@@ -150,10 +200,27 @@ footer {
     margin-top: 35px;
 }
 
+.hidden {
+    display: none !important;
+}
+
 @media (max-width: 600px) {
-    header h1 { font-size: 30px; }
-    .card { padding: 18px; }
-    nav a { margin: 5px; }
+    header h1 {
+        font-size: 30px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    nav a {
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
@@ -197,10 +264,17 @@ footer {
             The project purpose, team roles, responsibilities, values
             and communication plan.
         </p>
-        <a class="button" href="AGILE%20TEAM%20CHARTER%202026.pdf" target="_blank" rel="noopener">
+
+        <a class="button"
+           href="AGILE%20TEAM%20CHARTER%202026.pdf"
+           target="_blank"
+           rel="noopener">
             View Original Team Charter PDF
         </a>
-        <a class="button" href="#charter" onclick="openDocument('charter.md','Agile Team Charter')">
+
+        <a class="button"
+           href="#charter"
+           onclick="openDocument('charter.md','Agile Team Charter')">
             View Portfolio Summary
         </a>
     </section>
@@ -211,7 +285,10 @@ footer {
             User requirements, acceptance criteria and development tasks
             identified for Book Swap SA.
         </p>
-        <a class="button" href="#stories" onclick="openDocument('user-stories.md','User Stories and Tasks')">
+
+        <a class="button"
+           href="#stories"
+           onclick="openDocument('user-stories.md','User Stories and Tasks')">
             View User Stories
         </a>
     </section>
@@ -221,11 +298,16 @@ footer {
         <p>
             The planned project work, prioritisation and progress tracking.
         </p>
-        <a class="button" href="#product" onclick="openDocument('product-backlog.md','Product Backlog')">
+
+        <a class="button"
+           href="#product"
+           onclick="openDocument('product-backlog.md','Product Backlog')">
             View Product Backlog
         </a>
+
         <h3 class="evidence-heading">Product Backlog Evidence</h3>
         <p>Screenshots of the team's Product Backlog are displayed below.</p>
+
         <div class="gallery" id="product-gallery"></div>
         <p class="status" id="product-status">Loading screenshots...</p>
     </section>
@@ -236,11 +318,16 @@ footer {
             Sprint planning, task allocation and progress tracking
             across the project.
         </p>
-        <a class="button" href="#sprint" onclick="openDocument('sprint-backlog.md','Sprint Backlog')">
+
+        <a class="button"
+           href="#sprint"
+           onclick="openDocument('sprint-backlog.md','Sprint Backlog')">
             View Sprint Backlog
         </a>
+
         <h3 class="evidence-heading">Sprint Backlog Evidence</h3>
         <p>Screenshots of the team's sprint planning and tasks are displayed below.</p>
+
         <div class="gallery" id="sprint-gallery"></div>
         <p class="status" id="sprint-status">Loading screenshots...</p>
     </section>
@@ -251,11 +338,272 @@ footer {
             A record of project activities, progress, challenges
             and personal reflection.
         </p>
-        <a class="button" href="#logbook" onclick="openDocument('agile-logbook.md','Agile Logbook')">
+
+        <a class="button"
+           href="#logbook"
+           onclick="openDocument('agile-logbook.md','Agile Logbook')">
             View Agile Logbook
         </a>
+
         <h3 class="evidence-heading">Original Logbook Evidence</h3>
         <p>
             The following images show evidence from the original logbook records.
         </p>
-        <div class="gallery" id="log
+
+        <div class="gallery" id="logbook-gallery"></div>
+        <p class="status" id="logbook-status">Loading screenshots...</p>
+    </section>
+
+</div>
+
+<section class="card" id="document-view">
+    <button class="button back-button" onclick="showHome()">
+        ← Back to Portfolio
+    </button>
+
+    <h2 id="document-title">Portfolio Document</h2>
+
+    <div id="document-content">
+        <p>Loading document...</p>
+    </div>
+
+    <button class="button" onclick="showHome()">
+        ← Back to Portfolio
+    </button>
+</section>
+
+</main>
+
+<footer>
+    <p>Book Swap SA | PRP372S Project Presentation 3</p>
+    <p>Digital Portfolio | Cape Peninsula University of Technology</p>
+</footer>
+
+<script>
+const REPO_OWNER = "Coben220235686";
+const REPO_NAME = "Book-Swap-SA-Portfolio";
+const BRANCH = "main";
+
+const RAW_BASE =
+    `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/`;
+
+const API_URL =
+    `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/screenshots?ref=${BRANCH}`;
+
+const LOGBOOK_IMAGES = [
+    "01_July_14-17_Logbook_Tuesday.png",
+    "02_July_14-17_Logbook_Wednesday_Thursday.png",
+    "03_July_14-17_Logbook_Friday.png",
+    "04_July_20-24_Logbook_Monday_Tuesday.png",
+    "05_July_20-24_Logbook_Wednesday_Thursday.png",
+    "06_July_20-24_Logbook_Friday.png",
+    "07_August_10-14_Logbook_Monday_Tuesday_Wednesday.png",
+    "08_August_10-14_Logbook_Thursday_Friday.png"
+];
+
+function showHome() {
+    document.getElementById("home").classList.remove("hidden");
+    document.getElementById("document-view").style.display = "none";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+async function openDocument(filename, title) {
+    const home = document.getElementById("home");
+    const documentView = document.getElementById("document-view");
+    const documentTitle = document.getElementById("document-title");
+    const documentContent = document.getElementById("document-content");
+
+    home.classList.add("hidden");
+    documentView.style.display = "block";
+    documentTitle.textContent = title;
+    documentContent.innerHTML = "<p>Loading document...</p>";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    try {
+        const response = await fetch(RAW_BASE + filename);
+
+        if (!response.ok) {
+            throw new Error("Document could not be found.");
+        }
+
+        const markdown = await response.text();
+
+        if (typeof marked === "undefined") {
+            throw new Error("The Markdown renderer did not load. Please refresh the page.");
+        }
+
+        documentContent.innerHTML = marked.parse(markdown);
+
+        // Open links inside the rendered document in a new tab.
+        documentContent.querySelectorAll("a").forEach(link => {
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+        });
+
+        // Make relative images inside Markdown work from the repository.
+        documentContent.querySelectorAll("img").forEach(img => {
+            const src = img.getAttribute("src");
+
+            if (src && !src.startsWith("http") && !src.startsWith("data:")) {
+                img.src = new URL(src, RAW_BASE + filename).href;
+            }
+        });
+
+    } catch (error) {
+        documentContent.innerHTML = `
+            <p>Sorry, this document could not be loaded.</p>
+            <p class="status">${escapeHTML(error.message)}</p>
+            <p>Check that <strong>${escapeHTML(filename)}</strong> exists in the repository's main branch.</p>
+        `;
+    }
+}
+
+function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[character]);
+}
+
+function createGalleryImage(gallery, filename, url) {
+    const figure = document.createElement("figure");
+    const link = document.createElement("a");
+    const img = document.createElement("img");
+    const caption = document.createElement("figcaption");
+
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    img.src = url;
+    img.alt = filename;
+    img.loading = "lazy";
+
+    img.onerror = () => {
+        figure.remove();
+    };
+
+    caption.textContent = filename;
+
+    link.appendChild(img);
+    figure.appendChild(link);
+    figure.appendChild(caption);
+    gallery.appendChild(figure);
+}
+
+function updateGalleryStatus(id, message) {
+    document.getElementById(id).textContent = message;
+}
+
+function isImageFile(filename) {
+    return /\.(png|jpe?g|webp|gif)$/i.test(filename);
+}
+
+async function loadScreenshots() {
+    const productGallery = document.getElementById("product-gallery");
+    const sprintGallery = document.getElementById("sprint-gallery");
+    const logbookGallery = document.getElementById("logbook-gallery");
+
+    try {
+        const response = await fetch(API_URL);
+
+        if (!response.ok) {
+            throw new Error("Could not retrieve the screenshot folder.");
+        }
+
+        const files = await response.json();
+
+        if (!Array.isArray(files)) {
+            throw new Error("The screenshot folder could not be read.");
+        }
+
+        const images = files.filter(file =>
+            file.type === "file" && isImageFile(file.name)
+        );
+
+        // Product backlog screenshots: filenames containing "product".
+        const productImages = images.filter(file =>
+            /product/i.test(file.name) &&
+            !/sprint|logbook/i.test(file.name)
+        );
+
+        // Sprint backlog screenshots: filenames containing "sprint".
+        const sprintImages = images.filter(file =>
+            /sprint/i.test(file.name)
+        );
+
+        // Logbook images use the known filenames or logbook/date keywords.
+        const logbookImages = images.filter(file =>
+            LOGBOOK_IMAGES.includes(file.name) ||
+            /logbook|july|august/i.test(file.name)
+        );
+
+        productImages.forEach(file =>
+            createGalleryImage(productGallery, file.name, file.download_url)
+        );
+
+        sprintImages.forEach(file =>
+            createGalleryImage(sprintGallery, file.name, file.download_url)
+        );
+
+        logbookImages.forEach(file =>
+            createGalleryImage(logbookGallery, file.name, file.download_url)
+        );
+
+        updateGalleryStatus(
+            "product-status",
+            productImages.length
+                ? `${productImages.length} Product Backlog screenshot(s) loaded.`
+                : "No Product Backlog screenshots were identified. Check that their filenames contain 'product'."
+        );
+
+        updateGalleryStatus(
+            "sprint-status",
+            sprintImages.length
+                ? `${sprintImages.length} Sprint Backlog screenshot(s) loaded.`
+                : "No Sprint Backlog screenshots were identified. Check that their filenames contain 'sprint'."
+        );
+
+        updateGalleryStatus(
+            "logbook-status",
+            logbookImages.length
+                ? `${logbookImages.length} Agile Logbook screenshot(s) loaded.`
+                : "No Logbook screenshots were identified. Check the screenshots folder."
+        );
+
+    } catch (error) {
+        updateGalleryStatus(
+            "product-status",
+            "Screenshots could not be loaded automatically. " + error.message
+        );
+
+        updateGalleryStatus(
+            "sprint-status",
+            "Screenshots could not be loaded automatically. " + error.message
+        );
+
+        updateGalleryStatus(
+            "logbook-status",
+            "Screenshots could not be loaded automatically. " + error.message
+        );
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadScreenshots();
+});
+</script>
+
+</body>
+</html>
