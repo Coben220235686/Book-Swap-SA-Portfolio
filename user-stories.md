@@ -89,3 +89,16 @@ As a student, I want to use Book Swap SA on a phone or computer so that I can ac
 1. Apply responsive layout techniques.
 2. Test the layout at different screen sizes.
 3. Correct any layout or
+## 3. Evidence
+
+The user stories and associated tasks in this document provide evidence of the requirements identified for Book Swap SA. Each story describes a need from the student's perspective, while the acceptance criteria explain how the expected functionality can be assessed.
+
+The tasks break the proposed features into smaller activities that can guide development and testing. Supporting evidence can include screenshots of the project's existing Trello board, where relevant user stories and development tasks are recorded.
+
+## 4. Reflection
+
+Developing these user stories helped me understand how to describe software requirements from the user's perspective rather than focusing only on technical implementation. Writing acceptance criteria also helped me recognise the importance of defining what a feature should do before considering it complete.
+
+Breaking each story into smaller tasks provides a clearer way to plan development, share responsibilities and identify work that needs testing. As the Frontend Developer, I can use these requirements to guide the design of interfaces and ensure that the features I work on address the needs of CPUT students.
+
+This exercise also showed me that user stories need to be clear, achievable and testable. In future development, I can improve my approach by collaborating with the team to refine requirements, confirm priorities and check completed features against their acceptance criteria.
