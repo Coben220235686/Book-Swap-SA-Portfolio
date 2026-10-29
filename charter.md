@@ -43,3 +43,6 @@ The original charter should be retained as supporting evidence for this portfoli
 The Agile Team Charter establishes a shared understanding of the project's purpose and the responsibilities of each team member. It also highlights the importance of communication and collaboration throughout development.
 
 Having defined roles helps the team coordinate its work, while the project goals provide direction for planning and prioritising features. The charter can be used as a reference when reviewing progress and ensuring that development remains focused on the needs of CPUT students.
+## Original Agile Team Charter
+
+[View the original Agile Team Charter (PDF)](AGILE%20TEAM%20CHARTER%202026.pdf)
