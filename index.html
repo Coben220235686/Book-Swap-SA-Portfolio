@@ -1,12 +1,14 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Swap SA | Digital Portfolio</title>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 <style>
 * { box-sizing: border-box; }
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -14,31 +16,38 @@ body {
     color: #243047;
     line-height: 1.7;
 }
+
 header {
     background: #17365d;
     color: white;
     text-align: center;
     padding: 45px 20px;
 }
+
 header h1 { font-size: 38px; margin: 0; }
+
 nav {
     background: #102742;
     padding: 15px;
     text-align: center;
 }
+
 nav a {
     color: white;
-    margin: 6px 12px;
+    margin: 6px 10px;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
 }
+
 nav a:hover { color: #8fd3ff; }
+
 main {
     max-width: 1000px;
     margin: 30px auto;
     padding: 0 18px;
 }
+
 .card {
     background: white;
     padding: 25px;
@@ -46,7 +55,7 @@ main {
     border-radius: 10px;
     box-shadow: 0 3px 12px #0000000d;
 }
-.card a, .back-link { color: #1769aa; font-weight: bold; }
+
 .button {
     display: inline-block;
     padding: 9px 16px;
@@ -54,34 +63,85 @@ main {
     color: white !important;
     border-radius: 6px;
     text-decoration: none;
+    margin: 5px 5px 5px 0;
 }
+
 .button:hover { background: #24548a; }
+
 #document-view { display: none; }
+
 #document-content { overflow-wrap: anywhere; }
-#document-content h1, #document-content h2, #document-content h3 {
+
+#document-content h1,
+#document-content h2,
+#document-content h3 {
     color: #17365d;
     line-height: 1.3;
 }
-#document-content h1 { border-bottom: 2px solid #e5edf5; padding-bottom: 10px; }
+
+#document-content h1 {
+    border-bottom: 2px solid #e5edf5;
+    padding-bottom: 10px;
+}
+
 #document-content table {
     border-collapse: collapse;
     width: 100%;
     display: block;
     overflow-x: auto;
 }
-#document-content th, #document-content td {
+
+#document-content th,
+#document-content td {
     border: 1px solid #d6deea;
     padding: 10px;
     text-align: left;
 }
+
 #document-content th { background: #eaf1f8; }
-#document-content img { max-width: 100%; height: auto; }
-#document-content blockquote {
-    border-left: 4px solid #1769aa;
-    margin-left: 0;
-    padding-left: 16px;
-    color: #53627a;
+
+#document-content img {
+    max-width: 100%;
+    height: auto;
 }
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.gallery figure {
+    margin: 0;
+    padding: 10px;
+    background: #f4f7fb;
+    border-radius: 8px;
+    border: 1px solid #dce4ee;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.gallery figcaption {
+    font-size: 14px;
+    padding-top: 8px;
+    overflow-wrap: anywhere;
+}
+
+.evidence-heading {
+    margin-top: 30px;
+    border-bottom: 2px solid #e5edf5;
+    padding-bottom: 8px;
+    color: #17365d;
+}
+
+.status { color: #53627a; font-size: 14px; }
+
 footer {
     background: #17365d;
     color: white;
@@ -89,14 +149,15 @@ footer {
     padding: 18px;
     margin-top: 35px;
 }
-.status { color: #53627a; font-size: 14px; }
+
 @media (max-width: 600px) {
     header h1 { font-size: 30px; }
     .card { padding: 18px; }
-    nav a { margin: 5px 7px; }
+    nav a { margin: 5px; }
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -110,4 +171,91 @@ footer {
     <a href="#home" onclick="showHome()">Home</a>
     <a href="#charter" onclick="openDocument('charter.md','Agile Team Charter')">Team Charter</a>
     <a href="#stories" onclick="openDocument('user-stories.md','User Stories and Tasks')">User Stories</a>
-    <a href="#product" onclick="openDocument('product-backlog.md','Product 
+    <a href="#product" onclick="openDocument('product-backlog.md','Product Backlog')">Product Backlog</a>
+    <a href="#sprint" onclick="openDocument('sprint-backlog.md','Sprint Backlog')">Sprint Backlog</a>
+    <a href="#logbook" onclick="openDocument('agile-logbook.md','Agile Logbook')">Agile Logbook</a>
+</nav>
+
+<main>
+
+<div id="home">
+
+    <section class="card">
+        <h2>Welcome to Our Portfolio</h2>
+        <p>
+            This portfolio documents the Agile planning, project activities,
+            task organisation and reflections associated with Book Swap SA.
+            The project aims to help CPUT students access affordable
+            second-hand textbooks.
+        </p>
+        <p>Select a section below to explore the portfolio.</p>
+    </section>
+
+    <section class="card" id="charter">
+        <h2>1. Agile Team Charter</h2>
+        <p>
+            The project purpose, team roles, responsibilities, values
+            and communication plan.
+        </p>
+        <a class="button" href="AGILE%20TEAM%20CHARTER%202026.pdf" target="_blank" rel="noopener">
+            View Original Team Charter PDF
+        </a>
+        <a class="button" href="#charter" onclick="openDocument('charter.md','Agile Team Charter')">
+            View Portfolio Summary
+        </a>
+    </section>
+
+    <section class="card" id="stories">
+        <h2>2. User Stories and Tasks</h2>
+        <p>
+            User requirements, acceptance criteria and development tasks
+            identified for Book Swap SA.
+        </p>
+        <a class="button" href="#stories" onclick="openDocument('user-stories.md','User Stories and Tasks')">
+            View User Stories
+        </a>
+    </section>
+
+    <section class="card" id="product">
+        <h2>3. Product Backlog</h2>
+        <p>
+            The planned project work, prioritisation and progress tracking.
+        </p>
+        <a class="button" href="#product" onclick="openDocument('product-backlog.md','Product Backlog')">
+            View Product Backlog
+        </a>
+        <h3 class="evidence-heading">Product Backlog Evidence</h3>
+        <p>Screenshots of the team's Product Backlog are displayed below.</p>
+        <div class="gallery" id="product-gallery"></div>
+        <p class="status" id="product-status">Loading screenshots...</p>
+    </section>
+
+    <section class="card" id="sprint">
+        <h2>4. Sprint Backlog</h2>
+        <p>
+            Sprint planning, task allocation and progress tracking
+            across the project.
+        </p>
+        <a class="button" href="#sprint" onclick="openDocument('sprint-backlog.md','Sprint Backlog')">
+            View Sprint Backlog
+        </a>
+        <h3 class="evidence-heading">Sprint Backlog Evidence</h3>
+        <p>Screenshots of the team's sprint planning and tasks are displayed below.</p>
+        <div class="gallery" id="sprint-gallery"></div>
+        <p class="status" id="sprint-status">Loading screenshots...</p>
+    </section>
+
+    <section class="card" id="logbook">
+        <h2>5. Agile Logbook</h2>
+        <p>
+            A record of project activities, progress, challenges
+            and personal reflection.
+        </p>
+        <a class="button" href="#logbook" onclick="openDocument('agile-logbook.md','Agile Logbook')">
+            View Agile Logbook
+        </a>
+        <h3 class="evidence-heading">Original Logbook Evidence</h3>
+        <p>
+            The following images show evidence from the original logbook records.
+        </p>
+        <div class="gallery" id="log
