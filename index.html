@@ -1,114 +1,102 @@
-```html
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Book Swap SA | Digital Portfolio</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f4f7fb;
-            color: #243047;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #17365d;
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        nav {
-            background: #102742;
-            padding: 18px 10px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            margin: 8px 12px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        nav a:hover {
-            color: #9bc9ff;
-        }
-
-        main {
-            max-width: 950px;
-            margin: 35px auto;
-            padding: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px #00000010;
-        }
-
-        .card h2 {
-            color: #17365d;
-            margin-top: 0;
-        }
-
-        .card a {
-            display: inline-block;
-            background: #1769aa;
-            color: white;
-            padding: 10px 16px;
-            border-radius: 6px;
-            font-weight: bold;
-            text-decoration: none;
-            margin-top: 8px;
-        }
-
-        .card a:hover {
-            background: #102742;
-        }
-
-        footer {
-            text-align: center;
-            background: #17365d;
-            color: white;
-            padding: 20px;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 30px;
-            }
-
-            main {
-                margin: 15px auto;
-                padding: 12px;
-            }
-
-            .card {
-                padding: 20px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Swap SA | Digital Portfolio</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #243047;
+    line-height: 1.7;
+}
+header {
+    background: #17365d;
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+header h1 { font-size: 38px; margin: 0; }
+nav {
+    background: #102742;
+    padding: 15px;
+    text-align: center;
+}
+nav a {
+    color: white;
+    margin: 6px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+nav a:hover { color: #8fd3ff; }
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 18px;
+}
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 22px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px #0000000d;
+}
+.card a, .back-link { color: #1769aa; font-weight: bold; }
+.button {
+    display: inline-block;
+    padding: 9px 16px;
+    background: #17365d;
+    color: white !important;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.button:hover { background: #24548a; }
+#document-view { display: none; }
+#document-content { overflow-wrap: anywhere; }
+#document-content h1, #document-content h2, #document-content h3 {
+    color: #17365d;
+    line-height: 1.3;
+}
+#document-content h1 { border-bottom: 2px solid #e5edf5; padding-bottom: 10px; }
+#document-content table {
+    border-collapse: collapse;
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+}
+#document-content th, #document-content td {
+    border: 1px solid #d6deea;
+    padding: 10px;
+    text-align: left;
+}
+#document-content th { background: #eaf1f8; }
+#document-content img { max-width: 100%; height: auto; }
+#document-content blockquote {
+    border-left: 4px solid #1769aa;
+    margin-left: 0;
+    padding-left: 16px;
+    color: #53627a;
+}
+footer {
+    background: #17365d;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 35px;
+}
+.status { color: #53627a; font-size: 14px; }
+@media (max-width: 600px) {
+    header h1 { font-size: 30px; }
+    .card { padding: 18px; }
+    nav a { margin: 5px 7px; }
+}
+</style>
 </head>
-
 <body>
 
 <header>
@@ -119,95 +107,7 @@
 </header>
 
 <nav>
-    <a href="#charter">Team Charter</a>
-    <a href="#stories">User Stories</a>
-    <a href="#product">Product Backlog</a>
-    <a href="#sprint">Sprint Backlog</a>
-    <a href="#logbook">Agile Logbook</a>
-</nav>
-
-<main>
-
-    <section class="card">
-        <h2>Welcome to Our Portfolio</h2>
-
-        <p>
-            This portfolio documents the Agile planning, development activities,
-            project management and reflections associated with Book Swap SA.
-            The project aims to help CPUT students access affordable second-hand
-            textbooks.
-        </p>
-
-        <p>
-            Use the sections below to explore our Agile Team Charter, User Stories,
-            Product Backlog, Sprint Backlog and Agile Logbook.
-        </p>
-    </section>
-
-    <section class="card" id="charter">
-        <h2>1. Agile Team Charter</h2>
-
-        <p>
-            Our project purpose, team roles, responsibilities, values and
-            communication plan.
-        </p>
-
-        <a href="viewer.html?file=charter">View Team Charter</a>
-    </section>
-
-    <section class="card" id="stories">
-        <h2>2. User Stories and Tasks</h2>
-
-        <p>
-            The user requirements, acceptance criteria and development tasks
-            identified for Book Swap SA.
-        </p>
-
-        <a href="viewer.html?file=stories">View User Stories</a>
-    </section>
-
-    <section class="card" id="product">
-        <h2>3. Product Backlog</h2>
-
-        <p>
-            The planned features, prioritised work items and improvements
-            for the Book Swap SA platform.
-        </p>
-
-        <a href="viewer.html?file=product">View Product Backlog</a>
-    </section>
-
-    <section class="card" id="sprint">
-        <h2>4. Sprint Backlog</h2>
-
-        <p>
-            The seven-sprint plan, planned development activities and
-            approach to tracking project progress.
-        </p>
-
-        <a href="viewer.html?file=sprint">View Sprint Backlog</a>
-    </section>
-
-    <section class="card" id="logbook">
-        <h2>5. Agile Logbook</h2>
-
-        <p>
-            A record of project activities, progress, challenges,
-            lessons learned and personal reflection.
-        </p>
-
-        <a href="viewer.html?file=logbook">View Agile Logbook</a>
-    </section>
-
-</main>
-
-<footer>
-    <p>Book Swap SA | PRP372S | CPUT | 2026</p>
-</footer>
-
-</body>
-</html>
-```
-   
- 
-
+    <a href="#home" onclick="showHome()">Home</a>
+    <a href="#charter" onclick="openDocument('charter.md','Agile Team Charter')">Team Charter</a>
+    <a href="#stories" onclick="openDocument('user-stories.md','User Stories and Tasks')">User Stories</a>
+    <a href="#product" onclick="openDocument('product-backlog.md','Product 
