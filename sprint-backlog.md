@@ -31,3 +31,16 @@ The team can use the board to review progress, coordinate activities and identif
 ## 4. Evidence
 
 The Trello board is the primary evidence for the sprint plan. Screenshots of the board and relevant sprint cards will be included in this portfolio to demonstrate the planned work
+## 5. Reflection
+
+Working with the Sprint Backlog helped me understand how a project can be organised into smaller stages, each with its own focus and planned activities. The seven-sprint structure shows how Book Swap SA progresses from initial planning and business analysis through design, development, testing and final submission.
+
+I learned that breaking work into manageable tasks makes it easier for team members to understand their responsibilities and monitor progress. Trello also provides visibility into the work that has been assigned and the tasks that still require attention.
+
+As the Frontend Developer, I can use the Sprint Backlog to understand which interfaces and features are planned for development and how my responsibilities fit into each stage. Coordinating my work with the team's priorities helps ensure that the frontend supports the project's requirements.
+
+This artefact has helped me recognise the importance of planning, teamwork and reviewing progress throughout an Agile project. It also demonstrates why the team should compare planned activities with actual progress rather than assume that every task has been completed.
+
+## 6. Conclusion
+
+The Sprint Backlog provides a structured overview of the work planned across the seven sprints of Book Swap SA. Together with the Trello board and supporting screenshots, it helps demonstrate how the team organises activities, allocates responsibilities and monitors project progress.
