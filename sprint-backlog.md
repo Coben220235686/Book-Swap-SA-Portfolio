@@ -30,7 +30,7 @@ The team can use the board to review progress, coordinate activities and identif
 
 ## 4. Evidence
 
-The Trello board is the primary evidence for the sprint plan. Screenshots of the board and relevant sprint cards will be included in this portfolio to demonstrate the planned work
+The Trello board is the primary evidence for the sprint plan. Screenshots of the board and relevant sprint cards will be included in this portfolio to demonstrate the planned work.
 ## 5. Reflection
 
 Working with the Sprint Backlog helped me understand how a project can be organised into smaller stages, each with its own focus and planned activities. The seven-sprint structure shows how Book Swap SA progresses from initial planning and business analysis through design, development, testing and final submission.
